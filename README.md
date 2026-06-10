@@ -306,11 +306,20 @@ docker run --name oracle-orbitalert -d -p 1521:1521 \
 
 sleep 90  # Aguardar Oracle iniciar
 
-docker run --name api-orbitalert -d -p 8080:8080 \
+docker run \
+  --name api-orbitalert \
+  --detach \
+  --publish 8080:8080 \
   --network orbitalert-network \
-  -e SPRING_DATASOURCE_URL="jdbc:oracle:thin:@oracle-orbitalert:1521:XEPDB1" \
-  -e SPRING_DATASOURCE_USERNAME="rm563719" \
-  -e SPRING_DATASOURCE_PASSWORD="111206" \
+  --env SPRING_DATASOURCE_URL="jdbc:oracle:thin:@oracle-orbitalert:1521/XEPDB1" \
+  --env SPRING_DATASOURCE_USERNAME="rm563719" \
+  --env SPRING_DATASOURCE_PASSWORD="111206" \
+  --env SPRING_DATASOURCE_DRIVER_CLASS_NAME="oracle.jdbc.OracleDriver" \
+  --health-cmd='curl -f http://localhost:8080/swagger-ui.html || exit 1' \
+  --health-interval=30s \
+  --health-timeout=10s \
+  --health-start-period=60s \
+  --health-retries=3 \
   api-orbitalert-image:latest
 
 # Verificar
