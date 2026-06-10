@@ -20,6 +20,8 @@
 
 ## 🏗️ Arquitetura
 
+![Diagrama de Arquitetura — OrbitAlert](architecture.png)
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │         Azure Resource Group — rg-orbitalert                │
