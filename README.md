@@ -86,18 +86,6 @@ az account show
 ```bash
 cd ~/projects  # ou diretório de preferência
 
-# API (Java + Spring Boot)
-git clone https://github.com/Waidemannm/JAVA-GS-2026.git
-cd JAVA-GS-2026
-git pull origin main
-cd ..
-
-# Database (Oracle + SQL scripts)
-git clone https://github.com/Waidemannm/DB-GS-2026.git
-cd DB-GS-2026
-git pull origin main
-cd ..
-
 # DevOps (Scripts & Dockerfile)
 git clone https://github.com/Waidemannm/DEVOPS-GS-2026.git
 cd DEVOPS-GS-2026
