@@ -22,13 +22,6 @@
 <img width="1049" height="704" alt="Captura de Tela 2026-06-09 às 22 16 47" src="https://github.com/user-attachments/assets/d5f5dc59-88d9-4f3c-a122-090309d05f09" />
 
 
-GitHub Integration:
-├─ https://github.com/Waidemannm/JAVA-GS-2026.git
-│  └─ Dockerfile (API) + Source Code
-├─ https://github.com/Waidemannm/DB-GS-2026.git
-│  └─ Dockerfile (DB) + orbitalert.sql
-└─ gs-scripts.sh (Infrastructure as Code)
-
 Acesso Local:
   Browser: http://localhost:8080
   Swagger: http://localhost:8080/swagger
