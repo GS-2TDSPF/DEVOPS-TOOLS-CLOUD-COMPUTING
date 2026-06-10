@@ -85,6 +85,11 @@ az account show
 
 ```bash
 cd ~/projects  # ou diretório de preferência
+# Java
+git clone https://github.com/Waidemannm/JAVA-GS-2026.git
+
+#DB
+ git clone https://github.com/Waidemannm/DB-GS-2026.git
 
 # DevOps (Scripts & Dockerfile)
 git clone https://github.com/Waidemannm/DEVOPS-GS-2026.git
