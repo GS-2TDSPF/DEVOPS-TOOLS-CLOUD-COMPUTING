@@ -333,54 +333,10 @@ curl -s http://localhost:8080/swagger-ui.html | head -20
 ### URLs de Acesso
 
 ```
-Local (Docker):
-  API Base:        http://localhost:8080/api
-  Swagger UI:      http://localhost:8080/swagger-ui.html
-  OpenAPI JSON:    http://localhost:8080/v3/api-docs
+VM:
+  API Base:        http://IP_PUBLIC_VM:8080/api
+  Swagger UI:      http://IP_PUBLIC_VM:8080/swagger-ui.html
 
-Azure (Produção):
-  API Base:        http://<VM_PUBLIC_IP>:8080/api
-  Swagger UI:      http://<VM_PUBLIC_IP>:8080/swagger-ui.html
-```
-
-### Teste de API
-
-```bash
-# Listar alertas
-curl -X GET "http://localhost:8080/api/Alertas" \
-  -H "accept: application/json" | jq
-
-# Listar municípios
-curl -X GET "http://localhost:8080/api/Municipios" \
-  -H "accept: application/json" | jq
-
-# Criar novo alerta (JSON body)
-curl -X POST "http://localhost:8080/api/Alertas" \
-  -H "accept: application/json" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "nrNivelRisco": 4,
-    "stStatus": "ATIVO",
-    "dsObservacao": "Precipitação acumulada de 80mm nas últimas 6h",
-    "dtFechamento": null,
-    "idZona": 1,
-    "idTipoAlerta": 1
-  }'
-```
-
-### Conexão Oracle com SQL*Plus
-
-```bash
-# Local
-sqlplus rm563719/111206@localhost:1521/XEPDB1
-
-# Azure (dentro da VM)
-docker exec -it oracle-orbitalert sqlplus rm563719/111206@XEPDB1
-
-# Queries teste
-SELECT COUNT(*) FROM TB_USUARIO;
-SELECT * FROM TB_ALERTA WHERE ROWNUM <= 5;
-DESC TB_ZONA_RISCO;
 ```
 
 ---
@@ -662,16 +618,6 @@ docker run -d --name grafana \
 
 ---
 
-## 📝 Versionamento
-
-| Versão | Data | Alterações |
-|--------|------|-----------|
-| 1.0 | 07/06/2026 | Setup inicial com Docker local + Azure deployment |
-| 1.1 (Planejado) | 09/06/2026 | CI/CD com GitHub Actions + ACR |
-| 2.0 (Roadmap) | Q3 2026 | Kubernetes (AKS) + Multi-region |
-
 ---
-
-**Última atualização**: 07 de junho de 2026
 
 Para suporte ou dúvidas, contacte a equipe DevOps via GitHub Issues ou chat do FIAP.
