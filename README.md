@@ -22,52 +22,6 @@
 <img width="1049" height="704" alt="Captura de Tela 2026-06-09 às 22 16 47" src="https://github.com/user-attachments/assets/d5f5dc59-88d9-4f3c-a122-090309d05f09" />
 
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│         Azure Resource Group — rg-orbitalert                │
-│                    Região: eastus2                          │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌────────────────────────────────────────────────┐         │
-│  │      VM Ubuntu 22.04 — vm-orbitalert           │         │
-│  │     Docker Engine via Azure CLI                 │         │
-│  │  (VNet: 10.10.0.0/16, Subnet: 10.10.1.0/24)   │         │
-│  │                                                │         │
-│  │  ┌──────────────────────────────────────────┐ │         │
-│  │  │   Docker Network — orbitalert-network    │ │         │
-│  │  │                                          │ │         │
-│  │  │  ┌──────────────────┐  ┌─────────────┐ │ │         │
-│  │  │  │   Container API  │  │  Container  │ │ │         │
-│  │  │  │  orbitalert-app  │  │   Oracle    │ │ │         │
-│  │  │  │                  │  │ XEPDB1 :1521│ │ │         │
-│  │  │  │ Java 21 + Spring │  │             │ │ │         │
-│  │  │  │ Boot :8080       │  │ Porta:1521  │ │ │         │
-│  │  │  │                  │  │ usuário:    │ │ │         │
-│  │  │  │ FROM maven:3.9   │  │ rm563719    │ │ │         │
-│  │  │  │                  │  │ senha:      │ │ │         │
-│  │  │  │ Swagger UI       │  │ 111206      │ │ │         │
-│  │  │  │ /api/*           │  │             │ │ │         │
-│  │  │  └──────────────────┘  └─────────────┘ │ │         │
-│  │  │           │                    │         │ │         │
-│  │  │           └────────┬───────────┘         │ │         │
-│  │  │          (JDBC + EF Core)               │ │         │
-│  │  │                                          │ │         │
-│  │  └──────────────────────────────────────────┘ │         │
-│  │                                                │         │
-│  │  Volume Nomeado: oracle-orbitalert-data       │         │
-│  │  Path: /opt/oracle/oradata                    │         │
-│  │  Persistência: SIM ✓                          │         │
-│  │                                                │         │
-│  └────────────────────────────────────────────────┘         │
-│                                                              │
-│  NSG Rules (Firewall):                                      │
-│  • SSH (22) — Admin access                                 │
-│  • HTTP (80) — Reservado para nginx/proxy futuro           │
-│  • API (8080) — Spring Boot API (público)                  │
-│  • DB (1521) — Oracle (apenas intra-VNet)                  │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-
 GitHub Integration:
 ├─ https://github.com/Waidemannm/JAVA-GS-2026.git
 │  └─ Dockerfile (API) + Source Code
