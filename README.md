@@ -19,8 +19,8 @@
 ---
 
 ## 🏗️ Arquitetura
+<img width="1049" height="704" alt="Captura de Tela 2026-06-09 às 22 16 47" src="https://github.com/user-attachments/assets/d5f5dc59-88d9-4f3c-a122-090309d05f09" />
 
-![Diagrama de Arquitetura — OrbitAlert](architecture.png)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
